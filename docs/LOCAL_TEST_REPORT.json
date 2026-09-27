@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-27",
+  "scope": "Post-redesign static QA",
+  "method": "HTML/CSS/JavaScript structural checks plus an in-memory localhost HTTP server. This is not a live GitHub Pages deployment test.",
+  "passed": [
+    "HTML tag pairs are balanced",
+    "CSS braces, strings, and comments are balanced",
+    "JavaScript parses in the available JavaScript runtime",
+    "site and leaderboard JSON parse successfully",
+    "all 36 JavaScript DOM target IDs exist in index.html",
+    "index.html contains no duplicate IDs",
+    "all 22 relative src, href, and data-zoom references resolve to local files",
+    "root HTML, CSS, JavaScript, both JSON files, and the teaser image return HTTP 200",
+    "paper provenance filename and SHA-256 match the current manuscript",
+    "author order, affiliation markers, equal-contribution markers, corresponding-author marker, and contact email are configured",
+    "GitHub code, Hugging Face dataset, contact, and submission links pass configuration validation",
+    "the pending arXiv paper link remains empty and its UI remains disabled"
+  ],
+  "browser_verification": {
+    "status": "not run",
+    "reason": "No in-app or extension browser instance was available in the current environment. Desktop/mobile screenshot and interaction QA should be repeated before public deployment."
+  },
+  "http_checks": [
+    {"path": "/", "status": 200},
+    {"path": "/assets/css/style.css", "status": 200},
+    {"path": "/assets/js/app.js", "status": 200},
+    {"path": "/data/site.json", "status": 200},
+    {"path": "/data/leaderboard.json", "status": 200},
+    {"path": "/assets/img/teaser.webp", "status": 200}
+  ]
+}

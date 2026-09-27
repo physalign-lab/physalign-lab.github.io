@@ -1,0 +1,37 @@
+{
+  "source_filename": "ICLR27_PhysAlign.pdf",
+  "source_sha256": "219cba47c68f86efd3d7809fe9cf042fd9d40e79dba1538d0306ca15b8263719",
+  "method": "Rasterized artwork-only crops; no figure content redrawn. Whitespace trimmed. Verify upstream redistribution rights before publishing.",
+  "figures": [
+    {
+      "asset": "teaser.webp",
+      "page": 2,
+      "figure": 1
+    },
+    {
+      "asset": "pipeline.webp",
+      "page": 4,
+      "figure": 2
+    },
+    {
+      "asset": "coverage.webp",
+      "page": 5,
+      "figure": 3
+    },
+    {
+      "asset": "diagnostics.webp",
+      "page": 7,
+      "figure": 4
+    },
+    {
+      "asset": "case-persistent.webp",
+      "page": 29,
+      "figure": 9
+    },
+    {
+      "asset": "case-repair.webp",
+      "page": 29,
+      "figure": 10
+    }
+  ]
+}

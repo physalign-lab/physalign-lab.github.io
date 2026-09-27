@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-26",
+  "updated_note": "Website snapshot preparation date; not model evaluation completion.",
+  "tracks": [
+    {
+      "id": "paper-2026-09-26",
+      "label": "Paper snapshot · full release",
+      "description": "Results transcribed from the supplied manuscript (26 September 2026). Development and test are evaluated jointly; these are not held-out test estimates.",
+      "benchmark_id": "paper-retained-3341",
+      "protocol_id": "paper-balanced-v1",
+      "dataset_revision": null,
+      "evaluator_commit": null,
+      "membership_sha256": null,
+      "reference": "Manuscript Table 2; Appendix B.3–B.5; Tables 8–11.",
+      "reference_url": "",
+      "pools": {
+        "G": {
+          "parents": 986,
+          "probes": 3341
+        },
+        "L": {
+          "parents": 311,
+          "probes": 412
+        },
+        "P": {
+          "parents": 385,
+          "probes": 553
+        },
+        "solve": {
+          "parents": 986
+        }
+      },
+      "note": "The snapshot identifier is a website bookkeeping label, not a published dataset tag. Audit-corrected data and supplementary candidates are not substituted into these paper results."
+    }
+  ],
+  "models": [
+    {
+      "id": "qwen35-4b-paper",
+      "name": "Qwen3.5-4B",
+      "family": "Qwen",
+      "access": "open",
+      "parameters_b": 4,
+      "model_url": "",
+      "track_id": "paper-2026-09-26",
+      "benchmark_id": "paper-retained-3341",
+      "protocol_id": "paper-balanced-v1",
+      "status": "paper-reported",
+      "result_source": "Table 2; Appendix B.5; Tables 8–10.",
+      "artifact_url": "",
+      "dataset_revision": null,
+      "evaluator_commit": null,
+      "membership_sha256": null,
+      "run_created_utc": "2026-09-15",
+      "config": {
+        "checkpoint_or_alias": "Qwen3.5-4B",
+        "reasoning": "Native thinking",
+        "sampling": "Greedy",
+        "output_cap": 8192,
+        "image_policy": "IMG02: min_pixels=65536, max_pixels=262144; patch size=16, merge size=2."
+      },
+      "support": {
+        "G": {
+          "parents": 986,
+          "probes": 3341
+        },
+        "L": {
+          "parents": 311,
+          "probes": 412
+        },
+        "solve": {
+          "parents": 986
+        }
+      },
+      "metrics": {
+        "gacc_all": 40.21,
+        "cacc": 53.97,
+        "jacc": 32.09,
+        "gacc_joint": 46.51,
+        "solveacc": 9.94
+      },
+      "paired": {
+        "parents": 311,
+        "probes": 412,
+        "base": 46.51,
+        "gt": 54.61,
+        "delta_pp": 8.1,
+        "ci95_pp": null,
+        "membership_sha256": null
+      },
+      "diagnostics": {
+        "grounding_error_given_correct_reading": 40.54,
+        "joint_quadrants": [
+          32.09,
+          21.88,
+          14.42,
+          31.62
+        ]
+      },
+      "notes": "Point estimates are reported under model-specific configurations, not equal-compute budgets. Run date denotes creation, not completion."
+    },
+    {
+      "id": "qwen35-9b-paper",
+      "name": "Qwen3.5-9B",
+      "family": "Qwen",
+      "access": "open",
+      "parameters_b": 9,
+      "model_url": "",
+      "track_id": "paper-2026-09-26",
+      "benchmark_id": "paper-retained-3341",
+      "protocol_id": "paper-balanced-v1",
+      "status": "paper-reported",
+      "result_source": "Table 2; Appendix B.5; Tables 8–10.",
+      "artifact_url": "",
+      "dataset_revision": null,
+      "evaluator_commit": null,
+      "membership_sha256": null,
+      "run_created_utc": "2026-09-14",
+      "config": {
+        "checkpoint_or_alias": "Qwen3.5-9B",
+        "reasoning": "Native thinking",
+        "sampling": "Greedy",
+        "output_cap": 8192,
+        "image_policy": "IMG02: min_pixels=65536, max_pixels=262144; patch size=16, merge size=2."
+      },
+      "support": {
+        "G": {
+          "parents": 986,
+          "probes": 3341
+        },
+        "L": {
+          "parents": 311,
+          "probes": 412
+        },
+        "solve": {
+          "parents": 986
+        }
+      },
+      "metrics": {
+        "gacc_all": 40.52,
+        "cacc": 65.81,
+        "jacc": 37.55,
+        "gacc_joint": 54.55,
+        "solveacc": 12.12
+      },
+      "paired": {
+        "parents": 311,
+        "probes": 412,
+        "base": 54.55,
+        "gt": 56.53,
+        "delta_pp": 1.98,
+        "ci95_pp": null,
+        "membership_sha256": null
+      },
+      "diagnostics": {
+        "grounding_error_given_correct_reading": 42.94,
+        "joint_quadrants": [
+          37.55,
+          28.26,
+          17.0,
+          17.19
+        ]
+      },
+      "notes": "Point estimates are reported under model-specific configurations, not equal-compute budgets. Run date denotes creation, not completion."
+    },
+    {
+      "id": "qwen35-27b-paper",
+      "name": "Qwen3.5-27B",
+      "family": "Qwen",
+      "access": "open",
+      "parameters_b": 27,
+      "model_url": "",
+      "track_id": "paper-2026-09-26",
+      "benchmark_id": "paper-retained-3341",
+      "protocol_id": "paper-balanced-v1",
+      "status": "paper-reported",
+      "result_source": "Table 2; Appendix B.5; Tables 8–10.",
+      "artifact_url": "",
+      "dataset_revision": null,
+      "evaluator_commit": null,
+      "membership_sha256": null,
+      "run_created_utc": "2026-09-15",
+      "config": {
+        "checkpoint_or_alias": "Qwen3.5-27B",
+        "reasoning": "Native thinking",
+        "sampling": "Greedy",
+        "output_cap": 8192,
+        "image_policy": "IMG02: min_pixels=65536, max_pixels=262144; patch size=16, merge size=2."
+      },
+      "support": {
+        "G": {
+          "parents": 986,
+          "probes": 3341
+        },
+        "L": {
+          "parents": 311,
+          "probes": 412
+        },
+        "solve": {
+          "parents": 986
+        }
+      },
+      "metrics": {
+        "gacc_all": 84.11,
+        "cacc": 84.14,
+        "jacc": 68.12,
+        "gacc_joint": 80.29,
+        "solveacc": 18.39
+      },
+      "paired": {
+        "parents": 311,
+        "probes": 412,
+        "base": 80.29,
+        "gt": 82.0,
+        "delta_pp": 1.71,
+        "ci95_pp": null,
+        "membership_sha256": null
+      },
+      "diagnostics": {
+        "grounding_error_given_correct_reading": 19.03,
+        "joint_quadrants": [
+          68.12,
+          16.01,
+          12.17,
+          3.7
+        ]
+      },
+      "notes": "Point estimates are reported under model-specific configurations, not equal-compute budgets. Run date denotes creation, not completion."
+    },
+    {
+      "id": "internvl35-8b-paper",
+      "name": "InternVL3.5-8B",
+      "family": "InternVL",
+      "access": "open",
+      "parameters_b": 8,
+      "model_url": "",
+      "track_id": "paper-2026-09-26",
+      "benchmark_id": "paper-retained-3341",
+      "protocol_id": "paper-balanced-v1",
+      "status": "paper-reported",
+      "result_source": "Table 2; Appendix B.5; Tables 8–10.",
+      "artifact_url": "",
+      "dataset_revision": null,
+      "evaluator_commit": null,
+      "membership_sha256": null,
+      "run_created_utc": "2026-09-15",
+      "config": {
+        "checkpoint_or_alias": "InternVL3.5-8B-HF",
+        "reasoning": "Explicit CoT",
+        "sampling": "Greedy",
+        "output_cap": 8192,
+        "image_policy": "IMG01: single-patch input; crop_to_patches=true, min_patches=max_patches=1; saved target 448 × 448."
+      },
+      "support": {
+        "G": {
+          "parents": 986,
+          "probes": 3341
+        },
+        "L": {
+          "parents": 311,
+          "probes": 412
+        },
+        "solve": {
+          "parents": 986
+        }
+      },
+      "metrics": {
+        "gacc_all": 23.52,
+        "cacc": 2.12,
+        "jacc": 1.05,
+        "gacc_joint": 33.36,
+        "solveacc": 7.47
+      },
+      "paired": {
+        "parents": 311,
+        "probes": 412,
+        "base": 33.36,
+        "gt": 34.81,
+        "delta_pp": 1.45,
+        "ci95_pp": null,
+        "membership_sha256": null
+      },
+      "diagnostics": {
+        "grounding_error_given_correct_reading": 50.63,
+        "joint_quadrants": [
+          1.05,
+          1.07,
+          32.32,
+          65.57
+        ]
+      },
+      "notes": "The low recognition score and strong interface sensitivity are retained exactly as reported; they should not be silently repaired or removed. Point estimates are reported under model-specific configurations, not equal-compute budgets. Run date denotes creation, not completion."
+    },
+    {
+      "id": "gpt6-astra-paper",
+      "name": "GPT-6 Astra",
+      "family": "GPT",
+      "access": "api",
+      "parameters_b": null,
+      "model_url": "",
+      "track_id": "paper-2026-09-26",
+      "benchmark_id": "paper-retained-3341",
+      "protocol_id": "paper-balanced-v1",
+      "status": "paper-reported",
+      "result_source": "Table 2; Appendix B.5; Tables 8–10.",
+      "artifact_url": "",
+      "dataset_revision": null,
+      "evaluator_commit": null,
+      "membership_sha256": null,
+      "run_created_utc": "2026-09-15",
+      "config": {
+        "checkpoint_or_alias": "gpt-6-astra",
+        "reasoning": "High effort",
+        "sampling": "Provider default (temperature omitted)",
+        "output_cap": 16384,
+        "image_policy": "IMG03: provider-managed; detail=auto; saved image bytes in source order without client-side resizing."
+      },
+      "support": {
+        "G": {
+          "parents": 986,
+          "probes": 3341
+        },
+        "L": {
+          "parents": 311,
+          "probes": 412
+        },
+        "solve": {
+          "parents": 986
+        }
+      },
+      "metrics": {
+        "gacc_all": 81.94,
+        "cacc": 89.44,
+        "jacc": 77.13,
+        "gacc_joint": 83.31,
+        "solveacc": 71.72
+      },
+      "paired": {
+        "parents": 304,
+        "probes": 397,
+        "base": 83.59,
+        "gt": 84.9,
+        "delta_pp": 1.32,
+        "ci95_pp": null,
+        "membership_sha256": null
+      },
+      "diagnostics": {
+        "grounding_error_given_correct_reading": 13.77,
+        "joint_quadrants": [
+          77.13,
+          12.32,
+          6.19,
+          4.37
+        ]
+      },
+      "notes": "Point estimates are reported under model-specific configurations, not equal-compute budgets. Run date denotes creation, not completion."
+    },
+    {
+      "id": "gemini38-flash-paper",
+      "name": "Gemini 3.8 Flash",
+      "family": "Gemini",
+      "access": "api",
+      "parameters_b": null,
+      "model_url": "",
+      "track_id": "paper-2026-09-26",
+      "benchmark_id": "paper-retained-3341",
+      "protocol_id": "paper-balanced-v1",
+      "status": "paper-reported",
+      "result_source": "Table 2; Appendix B.5; Tables 8–10.",
+      "artifact_url": "",
+      "dataset_revision": null,
+      "evaluator_commit": null,
+      "membership_sha256": null,
+      "run_created_utc": "2026-09-15",
+      "config": {
+        "checkpoint_or_alias": "gemini-3.8-flash",
+        "reasoning": "Provider default (reasoning control omitted)",
+        "sampling": "Temperature 0",
+        "output_cap": 8192,
+        "image_policy": "IMG03: provider-managed; detail=auto; saved image bytes in source order without client-side resizing."
+      },
+      "support": {
+        "G": {
+          "parents": 986,
+          "probes": 3341
+        },
+        "L": {
+          "parents": 311,
+          "probes": 412
+        },
+        "solve": {
+          "parents": 986
+        }
+      },
+      "metrics": {
+        "gacc_all": 90.71,
+        "cacc": 85.2,
+        "jacc": 70.59,
+        "gacc_joint": 79.33,
+        "solveacc": 21.31
+      },
+      "paired": {
+        "parents": 304,
+        "probes": 397,
+        "base": 78.67,
+        "gt": 80.86,
+        "delta_pp": 2.2,
+        "ci95_pp": null,
+        "membership_sha256": null
+      },
+      "diagnostics": {
+        "grounding_error_given_correct_reading": 17.15,
+        "joint_quadrants": [
+          70.59,
+          14.61,
+          8.74,
+          6.05
+        ]
+      },
+      "notes": "Point estimates are reported under model-specific configurations, not equal-compute budgets. Run date denotes creation, not completion."
+    }
+  ]
+}

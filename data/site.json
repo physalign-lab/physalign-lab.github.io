@@ -1,0 +1,35 @@
+{
+  "project_name": "PhysAlign",
+  "paper_title": "PhysAlign: A Benchmark for Evidence-Grounded Role Alignment in Multimodal Physics Reasoning",
+  "subtitle": "A Benchmark for Evidence-Grounded Role Alignment in Multimodal Physics Reasoning",
+  "tagline": "Correct recognition does not guarantee correct physical-role grounding.",
+  "year": "2026",
+  "website_url": "https://shenxianasi.github.io/physalign-lab.github.io/",
+  "links": {
+    "paper": "",
+    "code": "https://github.com/HCPLab-SYSU/PhysAlign",
+    "dataset": "https://huggingface.co/datasets/Jetson888/PhysAlign",
+    "contact": "mailto:liuy856@mail.sysu.edu.cn",
+    "submission": "https://github.com/shenxianasi/physalign-lab.github.io/issues/new?template=submit_result.yml"
+  },
+  "authors": [
+    {"name": "Kecheng Liang", "url": "", "affiliations": ["1"], "note": "*"},
+    {"name": "Haoyang Liu", "url": "", "affiliations": ["2"], "note": "*"},
+    {"name": "Zexin Chen", "url": "", "affiliations": ["1"], "note": ""},
+    {"name": "Zirong Liu", "url": "", "affiliations": ["1"], "note": ""},
+    {"name": "Weixing Chen", "url": "", "affiliations": ["1"], "note": ""},
+    {"name": "Qiufeng Wang", "url": "", "affiliations": ["3"], "note": ""},
+    {"name": "Yang Liu", "url": "", "affiliations": ["1"], "note": "†"},
+    {"name": "Liang Lin", "url": "", "affiliations": ["1"], "note": ""}
+  ],
+  "affiliations": [
+    {"id": "1", "name": "Sun Yat-sen University"},
+    {"id": "2", "name": "Dalian University of Technology"},
+    {"id": "3", "name": "Xi'an Jiaotong-Liverpool University"}
+  ],
+  "author_note": "* Equal contribution · † Corresponding author",
+  "bibtex": "",
+  "default_metric": "gacc_all",
+  "default_track": "paper-2026-09-26",
+  "footer_note": "A benchmark for inspecting the physical meaning of recognized evidence."
+}

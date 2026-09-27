@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.env
+.env.*
+node_modules/
+__preview__/
+*.log
+
+# Local manuscript used for design; the public paper will link to arXiv.
+/ICLR27_PhysAlign.pdf
+/tmp/

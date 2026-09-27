@@ -1,0 +1,52 @@
+name: Submit a model result
+description: Request review of a reproducible PhysAlign result. Submission does not automatically update the leaderboard.
+title: "[Result] Model name / dataset revision"
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: "Do not upload API keys, private targets, or restricted source assets. Use the result-record template in docs/new-result.example.json. Scores require maintainer verification before ranking."
+  - type: input
+    id: model
+    attributes:
+      label: Exact model / checkpoint / requested API alias
+    validations:
+      required: true
+  - type: input
+    id: track
+    attributes:
+      label: Evaluation track, dataset revision, evaluator commit
+    validations:
+      required: true
+  - type: textarea
+    id: settings
+    attributes:
+      label: Inference settings
+      description: "Include reasoning, sampling, output cap, image policy and UTC run date. API defaults must be distinguished from explicitly supplied settings."
+    validations:
+      required: true
+  - type: textarea
+    id: support
+    attributes:
+      label: Evaluation support and missing-response handling
+      description: "Give parents/probes in G, L and observed P_m, solution support, membership identifiers or hashes, and infrastructure-missing versus returned-failure counts."
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Result JSON and reproducibility artifacts
+      description: "Link score summaries, manifests, scorer version, and legally shareable logs. Unmeasured values must be null, not zero."
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: "I have not used hidden evaluation targets to select, tune, or retry model responses."
+          required: true
+        - label: "I have disclosed changes from the reference evaluation protocol and have not mixed dataset versions."
+          required: true
+        - label: "The linked artifacts contain no credentials, private targets, or unauthorized source material."
+          required: true

@@ -1,0 +1,59 @@
+{
+  "id": "replace-with-unique-result-id",
+  "name": "Replace with evaluated model",
+  "family": "Replace with family",
+  "access": "open",
+  "parameters_b": null,
+  "model_url": "",
+  "track_id": "paper-2026-09-26",
+  "benchmark_id": "paper-retained-3341",
+  "protocol_id": "paper-balanced-v1",
+  "status": "community-unverified",
+  "result_source": "Replace with run manifest reference",
+  "artifact_url": "",
+  "dataset_revision": null,
+  "evaluator_commit": null,
+  "membership_sha256": null,
+  "run_created_utc": null,
+  "config": {
+    "checkpoint_or_alias": "Replace with exact checkpoint or requested alias",
+    "reasoning": "Not recorded",
+    "sampling": "Not recorded",
+    "output_cap": null,
+    "image_policy": "Not recorded"
+  },
+  "support": {
+    "G": {
+      "parents": 0,
+      "probes": 0
+    },
+    "L": {
+      "parents": 0,
+      "probes": 0
+    },
+    "solve": {
+      "parents": 0
+    }
+  },
+  "metrics": {
+    "gacc_all": null,
+    "cacc": null,
+    "jacc": null,
+    "gacc_joint": null,
+    "solveacc": null
+  },
+  "paired": {
+    "parents": 0,
+    "probes": 0,
+    "base": null,
+    "gt": null,
+    "delta_pp": null,
+    "ci95_pp": null,
+    "membership_sha256": null
+  },
+  "diagnostics": {
+    "grounding_error_given_correct_reading": null,
+    "joint_quadrants": null
+  },
+  "notes": "Template only. Replace metadata and fill scores from actual evaluation. Keep unmeasured values null."
+}

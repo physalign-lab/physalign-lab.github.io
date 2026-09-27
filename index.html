@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhysAlign — Evidence-Grounded Physics Reasoning</title>
+  <meta name="description" content="PhysAlign evaluates whether multimodal models connect recognized evidence to the correct physical role: 3,341 localized probes from 986 physics problems.">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PhysAlign — Evidence-Grounded Physics Reasoning">
+  <meta property="og:description" content="A model can read a symbol correctly and still misunderstand the physics. Explore the benchmark, evidence, and model results.">
+  <!-- BEGIN CONFIGURED META -->
+  <link rel="canonical" href="https://shenxianasi.github.io/physalign-lab.github.io/">
+  <meta property="og:url" content="https://shenxianasi.github.io/physalign-lab.github.io/">
+  <meta property="og:image" content="https://shenxianasi.github.io/physalign-lab.github.io/assets/img/teaser.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="citation_title" content="PhysAlign: A Benchmark for Evidence-Grounded Role Alignment in Multimodal Physics Reasoning">
+  <meta name="citation_author" content="Kecheng Liang">
+  <meta name="citation_author" content="Haoyang Liu">
+  <meta name="citation_author" content="Zexin Chen">
+  <meta name="citation_author" content="Zirong Liu">
+  <meta name="citation_author" content="Weixing Chen">
+  <meta name="citation_author" content="Qiufeng Wang">
+  <meta name="citation_author" content="Yang Liu">
+  <meta name="citation_author" content="Liang Lin">
+  <!-- END CONFIGURED META -->
+  <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="./assets/js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="PhysAlign home"><span class="brand-mark" aria-hidden="true">φ</span><span>PhysAlign</span></a>
+      <button class="nav-toggle" aria-controls="navigation" aria-expanded="false">Menu <span aria-hidden="true">↗</span></button>
+      <nav id="navigation" aria-label="Primary">
+        <a href="#overview">Idea</a><a href="#method">Method</a><a href="#findings">Findings</a><a href="#leaderboard">Leaderboard</a><a href="#dataset">Dataset</a><a href="#citation">Citation</a>
+      </nav>
+      <a class="nav-paper" data-resource="paper" aria-disabled="true">Paper <small>arXiv pending</small> <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero-stage" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span> ICLR 2027 · UNDER REVIEW</div>
+          <h1 id="project-name">PhysAlign</h1>
+          <p class="paper-title" id="paper-title">A Benchmark for Evidence-Grounded Role Alignment in Multimodal Physics Reasoning</p>
+          <p class="tagline" id="tagline">Correct recognition does not guarantee correct physical-role grounding.</p>
+          <div id="author-block" class="author-block" hidden><p id="authors"></p><p id="affiliations"></p><p id="author-note"></p></div>
+          <div class="resource-links" aria-label="Research resources">
+            <a class="button primary resource" data-resource="paper" aria-disabled="true">Paper <small>arXiv pending</small> <span aria-hidden="true">↗</span></a>
+            <a class="button resource" data-resource="code" aria-disabled="true">Code <small>Coming soon</small> <span aria-hidden="true">↗</span></a>
+            <a class="button resource" data-resource="dataset" aria-disabled="true">Dataset <small>Coming soon</small> <span aria-hidden="true">↗</span></a>
+            <a class="button quiet" href="#leaderboard">Explore results <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <figure class="hero-figure reveal">
+          <div class="figure-label"><span>FIG. 1</span><b>Same evidence. Different premise.</b></div>
+          <button class="image-button" data-zoom="./assets/img/teaser.webp" data-caption="Figure 1 · Correct recognition, incorrect physical-role grounding." aria-label="Enlarge Figure 1 showing correct recognition and incorrect grounding">
+            <img src="./assets/img/teaser.webp" alt="A rod supported by a cable. The symbol T is correctly read, but an illustrated model response assigns it to the rod rather than the supporting cable." width="1434" height="658" fetchpriority="high">
+            <span class="zoom-cue" aria-hidden="true">Open figure <b>↗</b></span>
+          </button>
+          <figcaption>The symbol <i>T</i> is read correctly. Its physical owner is not. PhysAlign scores the distinction at the source evidence.</figcaption>
+        </figure>
+      </div>
+      <div class="container evidence-rail reveal" aria-label="Paper snapshot scale">
+        <div><span class="rail-index">01</span><strong>986</strong><p>source problems</p></div>
+        <div><span class="rail-index">02</span><strong>3,341</strong><p>localized probes</p></div>
+        <div><span class="rail-index">03</span><strong>553</strong><p>paired +GT inputs</p></div>
+        <div><span class="rail-index">04</span><strong>6</strong><p>evaluated MLLMs</p></div>
+      </div>
+      <p class="container snapshot-micro">Paper-snapshot inventory · Paired variants are not additional unique probes.</p>
+    </section>
+
+    <section class="story-section container" id="overview">
+      <div class="section-intro-grid reveal">
+        <div><p class="eyebrow">THE MISSING DIAGNOSTIC</p><h2>A model can read <i>T</i>—and still misunderstand the physics.</h2></div>
+        <div class="section-copy"><p>Answer accuracy collapses recognition, role assignment, and downstream reasoning into one outcome. PhysAlign tests the earlier question directly: did the model attach the observed content to the physical entity or relation supported by the problem?</p><p>Each query preserves the original diagram and conditions, points to one evidence location, and asks for the local physical correspondence.</p></div>
+      </div>
+      <div class="logic-path reveal" aria-label="PhysAlign evaluation logic">
+        <article class="logic-step reading"><span class="logic-number">01 / READ</span><div><small>Local content</small><strong>T</strong></div><p>What is visible at the anchored region?</p></article>
+        <span class="logic-arrow" aria-hidden="true">→</span>
+        <article class="logic-step grounding"><span class="logic-number">02 / GROUND</span><div><small>Physical owner</small><strong>E4</strong></div><p>Which entity or role does that content belong to?</p></article>
+        <span class="logic-arrow" aria-hidden="true">→</span>
+        <article class="logic-step joint"><span class="logic-number">03 / ALIGN</span><div><small>Joint correctness</small><strong>C ∩ G</strong></div><p>Both must be correct on the same localized probe.</p></article>
+      </div>
+      <aside class="thesis-note reveal"><span>CORE DISTINCTION</span><p>Recognition asks <em>“what is there?”</em> Grounding asks <em>“what does it physically belong to?”</em></p></aside>
+    </section>
+
+    <section class="method-section" id="method"><div class="container">
+      <div class="section-heading reveal"><div><p class="eyebrow">EVIDENCE IN · LOCAL TESTS OUT</p><h2>Built around the source evidence.</h2></div><span class="section-index" aria-hidden="true">02 / METHOD</span></div>
+      <div class="method-grid reveal">
+        <div class="method-copy"><p class="lead">Human-reviewed observational annotations become deterministic probes—without requiring a full diagram graph or exposing the target answer.</p><ol class="method-list">
+          <li><span>01</span><div><b>Anchor the evidence</b><p>Fixed image regions or exact text spans identify what is being queried.</p></div></li>
+          <li><span>02</span><div><b>Separate reading from role</b><p>Independent targets expose correctly read content assigned to the wrong entity.</p></div></li>
+          <li><span>03</span><div><b>Control the local reading</b><p>Matched +GT variants provide verified local content while keeping the target role hidden.</p></div></li>
+        </ol></div>
+        <figure class="paper-figure pipeline-figure"><button class="image-button" data-zoom="./assets/img/pipeline.webp" data-caption="Figure 2 · Evidence-linked construction and quality assurance." aria-label="Enlarge the benchmark construction pipeline"><img src="./assets/img/pipeline.webp" alt="Source curation, evidence-linked observational annotation, deterministic probe compilation, paired input construction, and quality control." loading="lazy" width="1585" height="883"><span class="zoom-cue" aria-hidden="true">Inspect pipeline <b>↗</b></span></button><figcaption><span>FIGURE 2</span> Answer-blind annotation, human review, deterministic compilation, paired inputs, and release packaging.</figcaption></figure>
+      </div>
+      <div class="probe-strip reveal" aria-label="Probe interfaces"><div><code>T02-single</code><p>Resolve an anchored mention to a candidate entity.</p></div><div><code>T03-image</code><p>Read a local label and identify its physical owner.</p></div><div><code>T03-text</code><p>Identify the owner of an anchored textual quantity.</p></div></div>
+    </div></section>
+
+    <section class="findings-section" id="findings"><div class="container findings-grid">
+      <div class="findings-copy reveal"><p class="eyebrow light">THE GROUNDING BOTTLENECK</p><h2>Strong perception is not reliable physical interpretation.</h2><p class="findings-lead">Across six MLLMs, PhysAlign finds a persistent gap between reading local content and assigning its physical role.</p><div class="finding-list">
+        <article><strong>13.8%</strong><div><b>lowest conditional role error</b><p>Even GPT-6 Astra misgrounds some correctly recognized evidence.</p></div></article>
+        <article><strong>50.6%</strong><div><b>conditional role error</b><p>For InternVL3.5-8B, about half of correctly read cases are assigned to the wrong role.</p></div></article>
+        <article><strong>+1.3–8.1</strong><div><b>paired point-estimate change (pp)</b><p>Supplying a verified local reading can help, but repairs and harms both occur.</p></div></article>
+      </div><p class="fineprint">Descriptive paper results. Most paired 95% confidence intervals include zero; a positive point estimate is not a significance claim.</p></div>
+      <figure class="diagnostic-stage reveal"><div class="figure-label dark"><span>FIG. 4</span><b>Where recognition and grounding diverge.</b></div><button class="image-button" data-zoom="./assets/img/diagnostics.webp" data-caption="Figure 4 · Recognition–grounding decomposition and paired reading controls." aria-label="Enlarge the paper diagnostic plot"><img src="./assets/img/diagnostics.webp" alt="Recognition and grounding decomposition across six models, alongside paired Base and plus-GT grounding comparisons with confidence intervals." loading="lazy" width="1426" height="669"><span class="zoom-cue" aria-hidden="true">Open result figure <b>↗</b></span></button><figcaption>C/G denote content and grounding correctness on the same joint set. +GT provides the reading, not the grounding answer.</figcaption></figure>
+    </div></section>
+
+    <section class="leaderboard-section" id="leaderboard"><div class="container wide">
+      <div class="section-heading reveal"><div><p class="eyebrow">EXPLORE THE PAPER SNAPSHOT</p><h2>One benchmark. Five complementary views.</h2></div><span class="section-index" aria-hidden="true">03 / RESULTS</span></div>
+      <p class="section-intro reveal">Compare role grounding, same-probe joint correctness, content recognition, and independent problem solving. Change the metric to see why a single “overall” score would hide important behavior.</p>
+      <div class="snapshot-note reveal"><span class="pill">PAPER SNAPSHOT</span><p id="track-description">Development and test are evaluated jointly. These are release-derived diagnostics, not held-out test estimates.</p><span id="updated-label" class="micro"></span></div>
+      <div id="load-error" class="error-box" hidden role="alert"></div>
+      <noscript><p class="error-box">Enable JavaScript to view the interactive results, or open <a href="./data/leaderboard.json">the result JSON</a>. For local preview, serve this folder over HTTP.</p></noscript>
+      <div class="board reveal" id="board">
+        <div class="board-tabs" role="tablist" aria-label="Result views"><button role="tab" id="tab-main" aria-controls="results-panel" aria-selected="true" data-view="main">Main results</button><button role="tab" id="tab-paired" aria-controls="results-panel" aria-selected="false" tabindex="-1" data-view="paired">Paired reading control</button><button role="tab" id="tab-diagnostic" aria-controls="results-panel" aria-selected="false" tabindex="-1" data-view="diagnostic">Error diagnostics</button></div>
+        <div class="board-controls"><label class="search-field">Search models<input id="model-search" type="search" placeholder="Model or family…" autocomplete="off"></label><label>Model access<select id="access-filter"><option value="all">All models</option><option value="open">Open weights</option><option value="api">API models</option></select></label><label>Evaluation track<select id="track-select"></select></label><label id="metric-label">Rank by<select id="metric-select"><option value="gacc_all">GAcc · all probes ↑</option><option value="jacc">JAcc · joint set ↑</option><option value="cacc">CAcc · joint set ↑</option><option value="gacc_joint">GAcc · joint set ↑</option><option value="solveacc">SolveAcc ↑</option></select></label></div>
+        <div role="tabpanel" id="results-panel" aria-labelledby="tab-main" tabindex="0"><div class="view-description" id="view-description"></div><div class="table-scroll" role="region" aria-label="Scrollable model results" tabindex="0"><table id="results-table"><caption id="table-caption" class="sr-only">PhysAlign results</caption><thead id="results-head"></thead><tbody id="results-body"></tbody></table></div><div class="board-bottom"><p id="result-count" role="status" aria-live="polite">Loading paper results…</p><div><button class="text-button" id="export-csv" type="button">Export this view ↗</button><a href="./data/leaderboard.json" download>Result JSON ↗</a></div></div></div>
+      </div>
+      <p class="board-footnote" id="ranking-note">Ranks describe reported point estimates under the selected metric, not statistical significance. No composite “overall score” is constructed.</p>
+      <details class="protocol-details"><summary>Evaluation populations &amp; score interpretation <span aria-hidden="true">+</span></summary><div class="pool-grid"><div><b>G · Overall grounding</b><strong>986 / 3,341</strong><span>Parents / probes · GAcc</span></div><div><b>L · Joint evaluation</b><strong>311 / 412</strong><span>Parents / probes · CAcc, JAcc, GAcc<sub>L</sub></span></div><div><b>P · Paired eligible</b><strong>385 / 553</strong><span>Release eligibility, not observed coverage</span></div><div><b>P<sub>m</sub> · Observed pairs</b><strong>311 / 412 <small>or</small> 304 / 397</strong><span>Open weights / API models, respectively</span></div></div><p><b>These counts describe the paper snapshot.</b> Local scores use parent- and task-balanced aggregation. <b>SolveAcc is mean normalized credit on 986 original problems, including partial credit</b>, not the fraction of fully correct solutions. Paired comparisons keep Base/+GT support fixed within each model, but observed support may differ across models.</p><p>All scores are percentages; changes are percentage points. Reported deltas and diagnostic ratios are transcribed from the paper, not recomputed from rounded columns. The +GT condition supplies local content, not perfect perception or the grounding answer. See manuscript §4.2, Table 2, and Appendix B.3–B.5.</p></details>
+      <figure class="figure-panel diagnostic-figure" id="diagnostic-figure" hidden><button class="image-button" data-zoom="./assets/img/diagnostics.webp" data-caption="Figure 4 · Recognition–grounding decomposition and paired reading controls." aria-label="Enlarge the paper diagnostic plot"><img src="./assets/img/diagnostics.webp" alt="The paper's four-way recognition and grounding decomposition, and Base versus plus-GT reading comparisons with uncertainty intervals." loading="lazy" width="1426" height="669"><span class="zoom-cue" aria-hidden="true">Open figure <b>↗</b></span></button><figcaption><span>FIGURE 4</span> Most paired confidence intervals include zero; positive point estimates do not establish a significant improvement for every model.</figcaption></figure>
+    </div></section>
+
+    <section class="dataset-section container" id="dataset">
+      <div class="section-heading reveal"><div><p class="eyebrow">SIX SOURCES · SEVEN DOMAINS</p><h2>Broad evidence, precisely localized.</h2></div><span class="section-index" aria-hidden="true">04 / DATASET</span></div>
+      <div class="dataset-grid reveal"><figure class="paper-figure coverage-figure"><button class="image-button" data-zoom="./assets/img/coverage.webp" data-caption="Figure 3 · Domain coverage and representative source problems." aria-label="Enlarge benchmark coverage"><img src="./assets/img/coverage.webp" alt="Coverage across mechanics, electromagnetism, optics, thermodynamics, waves, astrophysics, modern physics, and cross-disciplinary problems." loading="lazy" width="1503" height="794"><span class="zoom-cue" aria-hidden="true">Inspect coverage <b>↗</b></span></button><figcaption><span>FIGURE 3</span> Descriptive domain estimates and representative source problems, from middle-school to university-level physics.</figcaption></figure><div class="dataset-copy"><p class="lead">PhysAlign keeps each probe attached to the full original problem while localizing the evidence that defines the query.</p><dl class="dataset-facts"><div><dt>Source datasets</dt><dd>SeePhys, LiveK12Bench, PhysElite, OlympiadBench, Gaokao-MM-Physics, and PhyX-OE.</dd></div><div><dt>Evaluation unit</dt><dd>A parent physics problem plus one localized evidence–role query.</dd></div><div><dt>Quality control</dt><dd>Answer-blind observation, human review, structural checks, and separated public/private records.</dd></div></dl><p class="dataset-caveat">Coverage is intentionally reported as descriptive, not domain-balanced.</p></div></div>
+      <div class="release-notice reveal"><div><span class="eyebrow">VERSIONING MATTERS</span><h3>A frozen paper snapshot, with room to grow.</h3></div><p>The leaderboard reproduces the paper's retained 3,341-probe inventory. Audit-corrected releases, changed protocols, and additional candidates must use a separate evaluation track; old scores must not be relabeled as results on new data.</p><a class="inline-resource" data-resource="dataset" aria-disabled="true">Explore the dataset <small>Coming soon</small> ↗</a></div>
+    </section>
+
+    <section class="case-section" id="cases"><div class="container"><div class="section-heading reveal"><div><p class="eyebrow">RESPONSES, NOT JUST SCORES</p><h2>Two ways the local evidence changes the diagnosis.</h2></div><span class="section-index" aria-hidden="true">05 / CASES</span></div><p class="section-intro reveal">These manuscript examples show observable outputs. They are not estimates of error frequency or claims about a model's hidden reasoning process.</p><div class="case-grid">
+      <article class="case-card reveal"><div class="case-topline"><span>CASE A</span><span class="case-state persistent">PERSISTS</span></div><h3>Read correctly. Grounded to the wrong object.</h3><p>Three Qwen3.5 models read <i>D</i> correctly but assign it to the point charge rather than the conducting pipe, under both Base and +GT.</p><button class="image-button" data-zoom="./assets/img/case-persistent.webp" data-caption="Figure 9 · A role mismatch persists despite a correct reading." aria-label="Enlarge persistent role mismatch case"><img src="./assets/img/case-persistent.webp" alt="Conducting-pipe example with candidates and six models' local outputs." loading="lazy" width="1593" height="732"><span class="zoom-cue" aria-hidden="true">Open Figure 9 <b>↗</b></span></button><span class="micro">Manuscript Figure 9 · A supplied reading does not repair this role error.</span></article>
+      <article class="case-card reveal"><div class="case-topline"><span>CASE B</span><span class="case-state repaired">REPAIRED</span></div><h3>A supplied reading repairs one local relation.</h3><p>InternVL3.5-8B changes the graph-axis owner to the correct candidate after receiving the verified reading. Its independent solution remains incorrect.</p><button class="image-button" data-zoom="./assets/img/case-repair.webp" data-caption="Figure 10 · Supplying the local reading repairs one grounding error." aria-label="Enlarge repaired grounding case"><img src="./assets/img/case-repair.webp" alt="Position-time and velocity-time graphs with Base and plus-GT outputs showing a repaired owner prediction." loading="lazy" width="1596" height="718"><span class="zoom-cue" aria-hidden="true">Open Figure 10 <b>↗</b></span></button><span class="micro">Manuscript Figure 10 · A repaired local relation is not a complete solution.</span></article>
+      </div></div></section>
+
+    <section class="container contribute-section reveal" id="contribute"><div><p class="eyebrow">REPRODUCE · EXTEND · COMPARE</p><h2>Evaluate another model.</h2><p>Record the dataset revision, scorer commit, inference settings, and exact evaluation support. A result enters the ranked leaderboard only after maintainer review.</p><p class="muted">This static site displays results; it does not run models or receive private evaluation targets.</p></div><div class="contribute-links"><a class="button resource" data-resource="code" aria-disabled="true">Evaluation code <small>Coming soon</small></a><a class="button resource" data-resource="submission" aria-disabled="true">Submit a result <small>Not configured</small></a><a class="text-button" href="./docs/new-result.example.json" download>Download result template ↗</a><a class="text-button" href="./docs/LEADERBOARD_PROTOCOL.md">Read submission checklist ↗</a></div></section>
+
+    <section class="container citation-section" id="citation"><div class="section-heading reveal"><div><p class="eyebrow">BUILD ON THE WORK</p><h2>Citation</h2></div><button class="button small" id="copy-bibtex" disabled>Copy BibTeX</button></div><div class="citation-box reveal"><pre id="bibtex">BibTeX will appear here after the arXiv record completes moderation.</pre></div><p id="copy-status" class="micro" role="status" aria-live="polite"></p></section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-grid"><div><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">φ</span><span>PhysAlign</span></a><p id="footer-note">A benchmark for inspecting the physical meaning of recognized evidence.</p></div><div><span>Paper figures and results: PhysAlign authors.</span><a class="inline-resource" data-resource="contact" aria-disabled="true">Contact <small>Not configured</small></a><a href="./docs/ASSET_NOTICE.md">Source &amp; reuse notes</a></div></div></footer>
+  <dialog id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-top"><h2 id="detail-title">Model configuration</h2><button class="dialog-close" type="button" aria-label="Close model details">×</button></div><div id="detail-content"></div></dialog>
+  <dialog id="image-dialog" class="image-dialog" aria-labelledby="image-dialog-caption"><div class="dialog-top"><p id="image-dialog-caption"></p><button class="dialog-close" type="button" aria-label="Close figure">×</button></div><img id="zoomed-image" alt=""></dialog>
+</body>
+</html>
