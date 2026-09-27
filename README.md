@@ -4,7 +4,9 @@
 
 **完整教程：[docs/DEPLOY_ZH.md](docs/DEPLOY_ZH.md)**
 
-项目页地址：[shenxianasi.github.io/physalign-lab.github.io](https://shenxianasi.github.io/physalign-lab.github.io/)。发布源为本仓库 `main` 分支根目录。
+项目页地址：[physalign-lab.github.io](https://physalign-lab.github.io/)。网站仓库为 [physalign-lab/physalign-lab.github.io](https://github.com/physalign-lab/physalign-lab.github.io)，发布源为 `main` 分支根目录。
+
+后续更新推送到此组织仓库即可自动发布。原个人仓库保留旧网站，但不会自动同步新仓库的修改。
 
 ## 本地预览
 

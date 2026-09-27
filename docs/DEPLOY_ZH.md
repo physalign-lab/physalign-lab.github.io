@@ -16,6 +16,8 @@
 
 ### 1.1 选择网址
 
+**本站已采用组织首页：** 组织 `physalign-lab`，仓库 [physalign-lab/physalign-lab.github.io](https://github.com/physalign-lab/physalign-lab.github.io)，正式网址 [https://physalign-lab.github.io/](https://physalign-lab.github.io/)。后续将修改推送至该仓库的 `main` 分支即可自动发布，不需要购买域名或配置自定义 DNS。原个人仓库保留旧网站，不会自动同步更新。下表为其他部署方式的通用参考。
+
 | 方式 | 需要创建的仓库 | 最终网址形态 | 推荐情形 |
 |---|---|---|---|
 | 项目专用组织首页 | 在组织 `physalign` 下建 `physalign.github.io` | `https://physalign.github.io/` | 项目长期维护、多人协作，且组织名可用 |
@@ -24,7 +26,7 @@
 
 **注意：网址前面的名字由 GitHub 用户名/组织名决定，不是任意仓库名。** 在 `alice` 账户下新建一个 `physalign.github.io` 仓库，并不能直接取得 `https://physalign.github.io/`。它是 `alice` 所有的项目仓库，而不是 `physalign` 的组织首页。
 
-组织名是否可用，本模板没有替你核实或保留。若 `physalign` 不可用，可选择有辨识度的组织名，比如 `physalign-bench`，对应仓库也必须是 `physalign-bench.github.io`。模板全站使用相对资源路径，组织首页和带 `/PhysAlign/` 子路径的项目页都能部署。
+如果将模板用于其他项目，需要另行确认组织名是否可用；上表的 `physalign` 仅为示例，不是本站组织。模板全站使用相对资源路径，组织首页和带 `/PhysAlign/` 子路径的项目页都能部署。
 
 ### 1.2 明确当前是哪版结果
 
@@ -34,7 +36,7 @@
 
 ### 1.3 准备正式发表信息
 
-作者顺序、单位、共同一作、通讯作者邮箱、代码仓库、Hugging Face 数据集和结果提交入口已经配置。正式站点 URL 是 `https://shenxianasi.github.io/physalign-lab.github.io/`。arXiv 仍在审核，因此 `links.paper` 与最终 BibTeX 暂时保留为空。当前 PDF 是本地匿名投稿版本，已加入 `.gitignore`，不随网页上传。
+作者顺序、单位、共同一作、通讯作者邮箱、代码仓库、Hugging Face 数据集和结果提交入口已经配置。正式站点 URL 是 `https://physalign-lab.github.io/`。arXiv 仍在审核，因此 `links.paper` 与最终 BibTeX 暂时保留为空。当前 PDF 是本地匿名投稿版本，已加入 `.gitignore`，不随网页上传。
 
 ---
 

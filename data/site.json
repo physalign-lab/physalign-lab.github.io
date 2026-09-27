@@ -4,13 +4,13 @@
   "subtitle": "A Benchmark for Evidence-Grounded Role Alignment in Multimodal Physics Reasoning",
   "tagline": "Correct recognition does not guarantee correct physical-role grounding.",
   "year": "2026",
-  "website_url": "https://shenxianasi.github.io/physalign-lab.github.io/",
+  "website_url": "https://physalign-lab.github.io/",
   "links": {
     "paper": "",
     "code": "https://github.com/HCPLab-SYSU/PhysAlign",
     "dataset": "https://huggingface.co/datasets/Jetson888/PhysAlign",
     "contact": "mailto:liuy856@mail.sysu.edu.cn",
-    "submission": "https://github.com/shenxianasi/physalign-lab.github.io/issues/new?template=submit_result.yml"
+    "submission": "https://github.com/physalign-lab/physalign-lab.github.io/issues/new?template=submit_result.yml"
   },
   "authors": [
     {"name": "Kecheng Liang", "url": "", "affiliations": ["1"], "note": "*"},
