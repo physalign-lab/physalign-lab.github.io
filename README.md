@@ -28,7 +28,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 ## 上线前最少修改
 
-作者、单位、代码仓库、Hugging Face 数据集、通讯邮箱、正式站点 URL 和结果提交入口已经写入 `data/site.json`。arXiv 审核完成后补充 `links.paper` 和最终 `bibtex`，再运行 `scripts/prepare_release.py` 更新分享元数据；暂未发布的资源保留空字符串，页面会禁用相应按钮。
+作者、单位、代码仓库、Hugging Face 数据集、通讯邮箱、正式站点 URL 和结果提交入口已经写入 `data/site.json`。Paper 按钮已连接到 [arXiv PDF](https://arxiv.org/pdf/2609.33319)，Citation 使用 [arXiv 官方 BibTeX](https://arxiv.org/bibtex/2609.33319)，并提供 [citation.bib](citation.bib) 下载。后续修改论文信息时，请同步更新 `data/site.json`、`citation.bib` 和 `index.html` 中的静态论文链接与引用，再运行 `scripts/prepare_release.py` 更新分享元数据。
 
 GitHub Pages 使用 `Settings → Pages → Deploy from a branch → main → /(root)`。`index.html` 必须直接处在仓库根目录，不要多套一层解压目录。保留 `.nojekyll`。
 
@@ -37,6 +37,7 @@ GitHub Pages 使用 `Settings → Pages → Deploy from a branch → main → /(
 | 文件 | 用途 |
 |---|---|
 | `data/site.json` | 作者、链接、默认排序、BibTeX |
+| `citation.bib` | 可下载的正式 arXiv BibTeX，与页面引用保持一致 |
 | `data/leaderboard.json` | 实验结果及版本/配置/覆盖范围 |
 | `data/archive/paper-2026-09-26.json` | 初始论文快照，保留历史，不覆盖 |
 | `index.html` | 页面文字、论文示意图、数据概览 |
@@ -48,7 +49,7 @@ GitHub Pages 使用 `Settings → Pages → Deploy from a branch → main → /(
 | `docs/LEADERBOARD_PROTOCOL.md` | 版本/排名/提交和审核规则 |
 | `.github/ISSUE_TEMPLATE/submit_result.yml` | GitHub 模型结果提交表单 |
 
-代码无需 Node.js、npm、数据库或付费服务器。实验代码通过页面的 Code 按钮访问。用于本地设计的 `ICLR27_PhysAlign.pdf` 已加入 `.gitignore`，不随网页上传；论文公开地址待 arXiv 审核后补充。
+代码无需 Node.js、npm、数据库或付费服务器。实验代码通过页面的 Code 按钮访问。用于本地设计的 `ICLR27_PhysAlign.pdf` 已加入 `.gitignore`，不随网页上传；论文通过正式 arXiv 链接访问。
 
 默认 GAcc 排名只是展示选择；不混合多个指标构造总分。配对和条件错误诊断不设跨模型名次。未知分数用 `null`，不是 0。初始页面数字均为论文快照，而非后续修订数据的成绩。
 

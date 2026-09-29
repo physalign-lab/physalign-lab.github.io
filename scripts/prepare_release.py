@@ -33,9 +33,13 @@ def main() -> None:
     for author in config.get('authors', []):
         lines.append(f'<meta name="citation_author" content="{escape(author["name"])}">')
     paper = config.get('links', {}).get('paper', '')
-    # Do not claim citation_pdf_url for an arXiv abstract page or invent publication dates.
+    # Only identify a PDF when its URL explicitly points to one; do not invent dates.
     if paper:
         lines.append(f'<meta name="citation_public_url" content="{escape(paper)}">')
+        parsed_paper = urlsplit(paper)
+        arxiv_pdf = parsed_paper.hostname == 'arxiv.org' and re.fullmatch(r'/pdf/\d{4}\.\d{4,5}(?:v\d+)?(?:\.pdf)?', parsed_paper.path)
+        if parsed_paper.path.lower().endswith('.pdf') or arxiv_pdf:
+            lines.append(f'<meta name="citation_pdf_url" content="{escape(paper)}">')
     path = ROOT / 'index.html'
     doc = path.read_text(encoding='utf-8')
     require_block = re.escape(START) + r'.*?' + re.escape(END)

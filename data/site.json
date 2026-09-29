@@ -6,7 +6,7 @@
   "year": "2026",
   "website_url": "https://physalign-lab.github.io/",
   "links": {
-    "paper": "",
+    "paper": "https://arxiv.org/pdf/2609.33319",
     "code": "https://github.com/HCPLab-SYSU/PhysAlign",
     "dataset": "https://huggingface.co/datasets/Jetson888/PhysAlign",
     "contact": "mailto:liuy856@mail.sysu.edu.cn",
@@ -28,7 +28,7 @@
     {"id": "3", "name": "Xi'an Jiaotong-Liverpool University"}
   ],
   "author_note": "* Equal contribution · † Corresponding author",
-  "bibtex": "",
+  "bibtex": "@misc{liang2026physalignbenchmarkevidencegroundedrole,\n  title={PhysAlign: A Benchmark for Evidence-Grounded Role Alignment in Multimodal Physics Reasoning},\n  author={Kecheng Liang and Haoyang Liu and Zexin Chen and Zirong Liu and Weixing Chen and Qiufeng Wang and Yang Liu and Liang Lin},\n  year={2026},\n  eprint={2609.33319},\n  archivePrefix={arXiv},\n  primaryClass={cs.AI},\n  url={https://arxiv.org/abs/2609.33319},\n}",
   "default_metric": "gacc_all",
   "default_track": "paper-2026-09-26",
   "footer_note": "A benchmark for inspecting the physical meaning of recognized evidence."

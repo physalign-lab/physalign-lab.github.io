@@ -36,7 +36,7 @@
 
 ### 1.3 准备正式发表信息
 
-作者顺序、单位、共同一作、通讯作者邮箱、代码仓库、Hugging Face 数据集和结果提交入口已经配置。正式站点 URL 是 `https://physalign-lab.github.io/`。arXiv 仍在审核，因此 `links.paper` 与最终 BibTeX 暂时保留为空。当前 PDF 是本地匿名投稿版本，已加入 `.gitignore`，不随网页上传。
+作者顺序、单位、共同一作、通讯作者邮箱、代码仓库、Hugging Face 数据集和结果提交入口已经配置。正式站点 URL 是 `https://physalign-lab.github.io/`。Paper 按钮已指向 `https://arxiv.org/pdf/2609.33319`，Citation 已填写 arXiv 官方 BibTeX，支持复制和下载。2026-09-29 核对时，官方记录的当前版本为 `2609.33319v1`；网页使用 arXiv 官方导出的不带版本号引用，论文按钮按作者要求打开不带版本号的 PDF。原本地匿名投稿 PDF 仍在 `.gitignore` 中，不随网页上传。
 
 ---
 
@@ -105,7 +105,7 @@ contact      → mailto:你的公开联系邮箱
 submission   → https://github.com/网站所有者/网站仓库名/issues/new?template=submit_result.yml
 ```
 
-论文按钮建议指向 arXiv 的 `abs` 页面，而不是仅 PDF：读者能看到摘要、作者、版本和其他下载入口。代码按钮应指向**实际评测代码仓库**，不必指向这个宣传网站仓库。Hugging Face 链接应包含 `/datasets/`，不要误写成模型仓库地址。
+本站按作者要求让 Paper 按钮直接打开 arXiv PDF；Citation 区另外提供 `abs` 页面链接，便于读者查看摘要、作者和版本。代码按钮应指向**实际评测代码仓库**，不必指向这个宣传网站仓库。Hugging Face 链接应包含 `/datasets/`，不要误写成模型仓库地址。
 
 未发布的资源继续保留 `""`，其按钮会显示 `Coming soon` 且没有可点击目标。`contact` 和 `submission` 没准备好也可留空。
 
@@ -140,6 +140,8 @@ submission   → https://github.com/网站所有者/网站仓库名/issues/new?t
 `url` 可填个人主页，也可留空；`note` 可填 `*` 等标记，含义在 `author_note` 解释。不要在正式网站留下上述中文占位姓名。保持空数组时，整个作者区隐藏，而不是显示“Anonymous authors”。这只是展示行为，不能据此宣称网站满足匿名评审要求。
 
 ### 3.3 BibTeX
+
+当前正式引用已保存在根目录 `citation.bib`、`data/site.json` 的 `bibtex` 字段和 `index.html` 的静态 Citation 区。来源为 `https://arxiv.org/bibtex/2609.33319`，仅调整缩进；后续修改引用时请保持三处一致。不要将 arXiv 预印本改写成未确认的会议录用记录。
 
 把最终作者确认的 BibTeX 填入 `bibtex`。JSON 字符串不能直接跨行，可将换行写成 `\n`。更稳妥的做法：将真实 BibTeX 保存成 UTF-8 的 `citation.bib`，在项目根目录执行：
 

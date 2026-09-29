@@ -23,6 +23,8 @@
   <meta name="citation_author" content="Qiufeng Wang">
   <meta name="citation_author" content="Yang Liu">
   <meta name="citation_author" content="Liang Lin">
+  <meta name="citation_public_url" content="https://arxiv.org/pdf/2609.33319">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2609.33319">
   <!-- END CONFIGURED META -->
   <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/css/style.css?v=20260927-hero">
@@ -38,7 +40,7 @@
       <nav id="navigation" aria-label="Primary">
         <a href="#overview">Idea</a><a href="#method">Method</a><a href="#findings">Findings</a><a href="#leaderboard">Leaderboard</a><a href="#dataset">Dataset</a><a href="#citation">Citation</a>
       </nav>
-      <a class="nav-paper" data-resource="paper" aria-disabled="true">Paper <small>arXiv pending</small> <span aria-hidden="true">↗</span></a>
+      <a class="nav-paper" data-resource="paper" href="https://arxiv.org/pdf/2609.33319" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
@@ -53,7 +55,7 @@
           <p class="tagline" id="tagline">Correct recognition does not guarantee correct physical-role grounding.</p>
           <div id="author-block" class="author-block" hidden><p id="authors"></p><p id="affiliations"></p><p id="author-note"></p></div>
           <div class="resource-links" aria-label="Research resources">
-            <a class="button primary resource" data-resource="paper" aria-disabled="true">Paper <small>arXiv pending</small> <span aria-hidden="true">↗</span></a>
+            <a class="button primary resource" data-resource="paper" href="https://arxiv.org/pdf/2609.33319" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a>
             <a class="button resource" data-resource="code" aria-disabled="true">Code <small>Coming soon</small> <span aria-hidden="true">↗</span></a>
             <a class="button resource" data-resource="dataset" aria-disabled="true">Dataset <small>Coming soon</small> <span aria-hidden="true">↗</span></a>
             <a class="button quiet" href="#leaderboard">Explore results <span aria-hidden="true">↓</span></a>
@@ -143,7 +145,15 @@
 
     <section class="container contribute-section reveal" id="contribute"><div><p class="eyebrow">REPRODUCE · EXTEND · COMPARE</p><h2>Evaluate another model.</h2><p>Record the dataset revision, scorer commit, inference settings, and exact evaluation support. A result enters the ranked leaderboard only after maintainer review.</p><p class="muted">This static site displays results; it does not run models or receive private evaluation targets.</p></div><div class="contribute-links"><a class="button resource" data-resource="code" aria-disabled="true">Evaluation code <small>Coming soon</small></a><a class="button resource" data-resource="submission" aria-disabled="true">Submit a result <small>Not configured</small></a><a class="text-button" href="./docs/new-result.example.json" download>Download result template ↗</a><a class="text-button" href="./docs/LEADERBOARD_PROTOCOL.md">Read submission checklist ↗</a></div></section>
 
-    <section class="container citation-section" id="citation"><div class="section-heading reveal"><div><p class="eyebrow">BUILD ON THE WORK</p><h2>Citation</h2></div><button class="button small" id="copy-bibtex" disabled>Copy BibTeX</button></div><div class="citation-box reveal"><pre id="bibtex">BibTeX will appear here after the arXiv record completes moderation.</pre></div><p id="copy-status" class="micro" role="status" aria-live="polite"></p></section>
+    <section class="container citation-section" id="citation"><div class="section-heading reveal"><div><p class="eyebrow">BUILD ON THE WORK</p><h2>Citation</h2></div><button class="button small" id="copy-bibtex" disabled>Copy BibTeX</button></div><div class="citation-box reveal"><pre id="bibtex">@misc{liang2026physalignbenchmarkevidencegroundedrole,
+  title={PhysAlign: A Benchmark for Evidence-Grounded Role Alignment in Multimodal Physics Reasoning},
+  author={Kecheng Liang and Haoyang Liu and Zexin Chen and Zirong Liu and Weixing Chen and Qiufeng Wang and Yang Liu and Liang Lin},
+  year={2026},
+  eprint={2609.33319},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2609.33319},
+}</pre></div><p class="micro"><a href="./citation.bib" download>Download BibTeX ↗</a> · <a href="https://arxiv.org/abs/2609.33319" target="_blank" rel="noopener noreferrer">arXiv:2609.33319 ↗</a></p><p id="copy-status" class="micro" role="status" aria-live="polite"></p></section>
   </main>
 
   <footer class="site-footer"><div class="container footer-grid"><div><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">φ</span><span>PhysAlign</span></a><p id="footer-note">A benchmark for inspecting the physical meaning of recognized evidence.</p></div><div><span>Paper figures and results: PhysAlign authors.</span><a class="inline-resource" data-resource="contact" aria-disabled="true">Contact <small>Not configured</small></a><a href="./docs/ASSET_NOTICE.md">Source &amp; reuse notes</a></div></div></footer>
